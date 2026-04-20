@@ -1,0 +1,10 @@
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+.venv/
+
+# Large local dataset (do not push to GitHub)
+dataset_tapchi.csv
+
+# Optional runtime artifacts
+phobert_outputs/
