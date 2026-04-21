@@ -13,7 +13,8 @@ import seaborn as sns
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Chay lan luot train_nb_progress.py va train_svm_progress.py, "
+            "Chay lan luot train_nb_progress.py, train_svm_progress.py va "
+            "train_dt_progress.py, "
             "sau do tao bang/so do so sanh ket qua"
         )
     )
@@ -170,7 +171,7 @@ def save_comparison_outputs(df: pd.DataFrame, out_prefix: str) -> None:
     axes[1].set_ylabel("Giay")
     axes[1].tick_params(axis="x", rotation=15)
 
-    fig.suptitle("Tong hop so sanh Naive Bayes va SVM", fontsize=14)
+    fig.suptitle("Tong hop so sanh Naive Bayes, SVM va Decision Tree", fontsize=14)
     plt.tight_layout()
     plt.savefig(chart_file, dpi=300, bbox_inches="tight")
     plt.close(fig)
@@ -208,6 +209,7 @@ def main() -> None:
     jobs = [
         ("Naive Bayes", "train_nb_progress.py", "confusion_matrix_nb.png"),
         ("SVM (Linear)", "train_svm_progress.py", "confusion_matrix_svm.png"),
+        ("Decision Tree", "train_dt_progress.py", "confusion_matrix_dt.png"),
     ]
 
     for model_name, script_name, cm_file in jobs:
